@@ -8,12 +8,13 @@ import cookieParser from "cookie-parser";
 import loginCustomerRoutes from "./src/routes/login.js";
 import logoutRoutes from "./src/routes/logout.js"
 import cors from "cors";
+import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 
 //Creo una constante que guarde Express
 const app = express();
 
 app.use(cors({
-    origin: ["http//localhost:5173", "http//localhost:5174"],
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     credentials: true
 }));
 
@@ -29,5 +30,6 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/registerCustomer", registerCustomerRoutes);
 app.use("/api/login", loginCustomerRoutes);
 app.use("/api/logout",logoutRoutes);
+app.use("/api/recoveryPassword",recoveryPasswordRoutes);
 
 export default app;
